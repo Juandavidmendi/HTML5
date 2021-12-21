@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+ <title>Formulario con estilo</title> 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <script> 
+ function iniciar(){ 
+ edad=document.getElementById("miedad"); 
+ edad.addEventListener("change", cambiarrango, false); 
+ document.informacion.addEventListener("invalid", 
+ validacion, true); 
+ document.getElementById("enviar").addEventListener("click", 
+ enviar, false); 
+ document.informacion.addEventListener("input", controlar, 
+ false); 
+ } 
+ function cambiarrango(){ 
+ var salida=document.getElementById("rango"); 
+ var calc=edad.value-20; 
+ if(calc<20){ 
+ calc=0; 
+ edad.value=20; 
+ } 
+ salida.innerHTML=calc+' a '+edad.value; 
+ } 
+ function validacion(e){ 
+ var elemento=e.target; 
+ elemento.style.background='#FFDDDD'; 
+ }  
+ function enviar(){ 
+ var elemento=document.getElementById("usuario"); 
+ var elemento=document.getElementById("miemail");
+ var valido=document.informacion.checkValidity(); 
+ if(valido){ 
+ document.informacion.submit(); 
+ }else if(elemento.validity.patternMismatch || 
+ elemento.validity.valueMissing){ 
+ alert('el nombre de usuario debe tener m&iacute;nimo de 3 caracteres'); 
+ } 
+ 
+}
+
+ function controlar(e){ 
+ var elemento=e.target; 
+ if(elemento.validity.valid){ 
+ elemento.style.background='#FFFFFF'; 
+ }else{ 
+ elemento.style.background='#FFDDDD'; 
+ } 
+ } 
+ window.addEventListener("load", iniciar, false); 
+ </script> 
+</head> 
+<body> 
+
+    <form name="informacion" method="get">
+        <div class="col-sm-10">
+            <div class="form-check">
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Nombre de usuario</label>
+            <div class="col-sm-10">
+            <input  pattern="[A-Za-z]{3,}" name="usuario" id="usuario" maxlength="10" required placeholder="ingresa usuario">
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="col-sm-2 col-form-label">Correo electronico</label>
+          <div class="col-sm-10">
+          <input type="email" name="miemail" id="miemail" required placeholder="ejemplocorreo@gmail.com" multiple>
+        </div>
+        </div>
+        <div class="form-group">
+          <label class="form-check-label" class="col-sm-2 col-form-label" for="formControlRange">Rango de Edad</label>
+          <div class="col-sm-10">
+          <input class="form-control-range" type="range" name="miedad" id="miedad" min="0" max="80" step="20" value="20">
+          </div>
+          <output id="rango">0 a 20</output>
+        </div>
+        <input type="button" id="enviar" value="ingresar" class="btn btn-primary"></button>
+    </div>
+</div>
+      </form>
+    
+</body> 

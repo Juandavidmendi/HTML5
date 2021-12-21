@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<title>title</title>
+<style>
+#parent {
+ height: 7em;
+ background: #00da01;
+ padding: 1em;
+}
+#child {
+ height: 70%;
+ margin: 1em 5em;
+ background: #8889fe;
+}
+</style>
+</head>
+<body>
+<h4>example this and target</h4>
+<p>Click on the Child (blue rectangle), then on the Parent (green area), and see the difference in the alert window.</p>
+
+<div id='parent'>Parent
+ <div id='child'>Child</div>
+</div>
+<script>
+document.getElementById('parent').onclick = function(ev){
+ var id1 = this.id;
+ var id2 = ev.target.id;
+ alert('this = '+ id1 +'\n ev.target = '+ id2);
+}
+</script>
+</body>
+</html>

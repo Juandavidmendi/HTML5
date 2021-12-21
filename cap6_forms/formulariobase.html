@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+ <title>Formularios</title> 
+</head> 
+<body> 
+ <section> 
+ <form name="miformulario" id="miformulario" method="get"> 
+ <input type="text" name="nombre" id="nombre">
+ <input type="email" name="miemail" id="miemail"  required multiple>
+ <input type="search" name="busqueda" id="busqueda" placeholder="escriba su búsqueda" autofocus>
+ <input type="url" name="miurl" id="miurl">
+ <input type="tel" name="telefono" id="telefono">   
+ <input type="number" name="numero" id="numero" min=”0” max=”10” step=”5”> 
+ <input type="range" name="numero" id="numero" min=”0” max=”10” step=”5”>
+ <input type="date" name="fecha" id="fecha"> 
+ <input type="week" name="semana" id="semana"><!--este no lo usare nunca, semana del año -->
+ <input type="month" name="mes" id="mes"><!--Este tampoco lo usare --> 
+ <input type="time" name="hora" id="hora"> 
+ <input type="datetime" name="fechahora" id="fechahora">
+ <input type="datetime-local" name="tiempolocal" id="tiempolocal"><!-- Sin zona horaria-->
+ <input type="color" name="micolor" id="micolor"> <!-- tipo color-->
+ <input pattern=”[0-9]{5}" name="codigopostal" id="codigopostal” title=”inserte los 5 números de su código postal”>
+
+ <input type="submit" value="Enviar"> 
+ </form> 
+ </section> 
+</body>     
+</html>
